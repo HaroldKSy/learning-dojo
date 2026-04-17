@@ -2,21 +2,25 @@ from django.shortcuts import render
 from .questions import get_random_question
 
 def dojo_view(request):
-    question = get_random_question()
     result = None
 
     if request.method == "POST":
-        user_answer = request.POST.get("answer")
+        question_text = request.POST.get("question")
         correct_answer = request.POST.get("correct_answer")
+        user_answer = request.POST.get("answer")
+        
 
         if user_answer == correct_answer:
             result = "Correct!"
         else:
             result = "Wrong!"
 
-    return render(request, "dojo.html", {
-        "question": question,
-        "result": result
-    })
+        question = {"text": question_text, "answer": correct_answer}
+
+
+    else: # GET
+        question = get_random_question()
+
+    return render(request, "dojo.html", {"question": question,"result": result})
 
 
