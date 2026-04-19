@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Dojo</title>
+</head>
+<body>
+
+<h1>Dojo</h1>
+
+{% if result %}
+    <p><strong>{{ result }}</strong></p>
+{% endif %}
+
+<p>{{ question.question }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <input type="text" name="answer" placeholder="Your answer">
+    
+    <!-- hidden correct answer -->
+    <input type="hidden" name="correct-answer" value="{{ question.answer }}">
+    
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
