@@ -21,6 +21,6 @@ def dojo_view(request):
     else: # GET
         question = get_random_question()
 
-    return render(request, "dojo.html", {"question": question,"result": result})
+    return render(request, "dojo/dojo.html", {"question": question,"result": result})
 
 
