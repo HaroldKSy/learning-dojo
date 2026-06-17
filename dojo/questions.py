@@ -13,5 +13,14 @@ questions = [
     {"question": "12 / 4", "answer": "3"},
 ]
 
+
+# {
+#   "question":       "The question goes here",
+#   "answer":         "The correct answer goes here",
+#   "decoy answers":  ["answer1", "answer2", "answer3", "answer4"]
+# }
+
+
+
 def get_random_question():
     return random.choice(questions)
